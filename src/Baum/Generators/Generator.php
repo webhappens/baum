@@ -1,6 +1,7 @@
 <?php
 namespace Baum\Generators;
 
+use Illuminate\Support\Str;
 use Illuminate\Filesystem\Filesystem;
 
 abstract class Generator {
@@ -78,7 +79,7 @@ abstract class Generator {
    * @return string
    */
   protected function classify($input) {
-    return studly_case(str_singular($input));
+    return studly_case(Str::singular($input));
   }
 
   /**
@@ -88,6 +89,6 @@ abstract class Generator {
    * @return string
    */
   protected function tableize($input) {
-    return snake_case(str_plural($input));
+    return snake_case(Str::plural($input));
   }
 }
